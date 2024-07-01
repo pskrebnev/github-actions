@@ -1,0 +1,39 @@
+name: Task1. Workflow1
+on: [push]
+jobs:
+    lint:
+        runs-on: ubuntu-latest
+        steps: 
+            - name: Get code
+              uses: actions/checkout@v4
+            - name: Install NodeJS
+              uses: actions/setup-node@v4
+              with:
+                node-version: 20
+            - name: Verify code
+              run: npm lint
+    test:
+        runs-on: ubuntu-latest
+        steps: 
+            - name: Get code
+              uses: actions/checkout@v4
+            - name: Install NodeJS
+              uses: actions/setup-node@v4
+              with:
+                node-version: 20
+            - name: Start tests
+              run: npm test
+    build:
+        runs-on: ubuntu-latest
+        steps: 
+            - name: Get code
+              uses: actions/checkout@v4
+            - name: Install NodeJS
+              uses: actions/setup-node@v4
+              with:
+                node-version: 20
+            - name: Start deploy
+              run: npm build
+
+
+
