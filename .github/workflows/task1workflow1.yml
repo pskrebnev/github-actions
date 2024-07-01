@@ -14,28 +14,8 @@ jobs:
               run: npm ci
             - name: Run Lint
               run: npm run lint
-    test:
-        runs-on: ubuntu-latest
-        steps: 
-            - name: Get code
-              uses: actions/checkout@v4
-            - name: Install NodeJS
-              uses: actions/setup-node@v4
-              with:
-                node-version: 20
             - name: Start tests
               run: npm test
-    build:
-        runs-on: ubuntu-latest
-        steps: 
-            - name: Get code
-              uses: actions/checkout@v4
-            - name: Install NodeJS
-              uses: actions/setup-node@v4
-              with:
-                node-version: 20
             - name: Start deploy
-              run: npm build
-
-
+              run: npm run build
 
