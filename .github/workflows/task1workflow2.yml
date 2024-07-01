@@ -1,0 +1,35 @@
+name: Task1. Workflow1
+on: push
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v4
+      - name: Install dependencies
+        run: npm ci
+      - name: Run Lint
+        run: npm run lint
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v4
+      - name: Install dependencies
+        run: npm ci
+      - name: Run tests
+        run: npm run test
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Get code
+        uses: actions/checkout@v4
+      - name: Install dependencies
+        run: npm ci
+      - name: Start deploy
+        run: npm run build
+      - name: Deploy code 
+        run: echo "Deploying ..."  
+
